@@ -9,6 +9,8 @@
   "config.Enable_HUD.desc": "Enable a mod name HUD for subjects under your cursor.",
   "config.Toggle_HUD.name": "Toggle HUD Key",
   "config.Toggle_HUD.desc": "Keybinding to toggle on/off the mod name HUD.",
+  "config.HoldToShow_HUD.name": "Show HUD Key",
+  "config.HoldToShow_HUD.desc": "Keybinding to hold and show HUD.",
   "config.Enable_HUD_NPC.name": "- NPCs/Pets",
   "config.Enable_HUD_FarmAnimal.name": "- Farm Animals",
   "config.Enable_HUD_Object.name": "- Objects",

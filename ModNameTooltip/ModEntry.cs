@@ -237,6 +237,10 @@ public sealed class ModEntry : Mod
         {
             config.SetEnable_HUD(!config.Enable_HUD);
         }
+        if (config.HoldToShow_HUD.IsBound)
+        {
+            config.SetHoldingToShow(config.HoldToShow_HUD.IsDown());
+        }
         if (config.Toggle_Tooltip.JustPressed())
         {
             config.SetEnable_Tooltip(!config.Enable_Tooltip);

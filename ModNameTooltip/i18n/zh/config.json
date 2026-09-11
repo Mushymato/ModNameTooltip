@@ -9,6 +9,8 @@
   "config.Enable_HUD.desc": "启用此模组提供的HUD，用于显示光标下对象的模组名",
   "config.Toggle_HUD.name": "HUD切换键",
   "config.Toggle_HUD.desc": "切换HUD的快捷键",
+  "config.HoldToShow_HUD.name": "HUD显示键",
+  "config.HoldToShow_HUD.desc": "按住显示HUD的快捷键",
   "config.Enable_HUD_NPC.name": "- 角色/宠物",
   "config.Enable_HUD_FarmAnimal.name": "- 牲畜",
   "config.Enable_HUD_Object.name": "- 物品",

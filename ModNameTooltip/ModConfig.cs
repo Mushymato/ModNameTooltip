@@ -13,6 +13,7 @@ public sealed class ModConfig
     public KeybindList Toggle_Tooltip = new();
     public bool Enable_HUD { get; set; } = true;
     public KeybindList Toggle_HUD = new();
+    public KeybindList HoldToShow_HUD = new();
     public bool Enable_HUD_NPC { get; set; } = true;
     public bool Enable_HUD_FarmAnimal { get; set; } = true;
     public bool Enable_HUD_Object { get; set; } = true;
@@ -56,6 +57,9 @@ public sealed class ModConfig
     internal Color? Color_SDV_Parsed = null;
     internal Color? Color_Mod_Parsed = null;
 
+    internal bool HoldingToShow = false;
+    internal bool Enable_HUD_Display => (HoldingToShow || !HoldToShow_HUD.IsBound) && Enable_HUD;
+
     public void Register(IManifest mod, IGenericModConfigMenuApi? gmcm)
     {
         if (gmcm == null)
@@ -88,6 +92,13 @@ public sealed class ModConfig
             (value) => Toggle_HUD = value,
             I18n.Config_ToggleHUD_Name,
             I18n.Config_ToggleHUD_Desc
+        );
+        gmcm.AddKeybindList(
+            mod,
+            () => HoldToShow_HUD,
+            (value) => HoldToShow_HUD = value,
+            I18n.Config_HoldToShowHUD_Name,
+            I18n.Config_HoldToShowHUD_Desc
         );
         gmcm.AddBoolOption(mod, () => Enable_HUD_NPC, (value) => Enable_HUD_NPC = value, I18n.Config_EnableHUDNPC_Name);
         gmcm.AddBoolOption(
@@ -162,6 +173,12 @@ public sealed class ModConfig
     {
         if (Enable_HUD != value)
             Enable_HUD = value;
+    }
+
+    internal void SetHoldingToShow(bool value)
+    {
+        if (HoldingToShow != value)
+            HoldingToShow = value;
     }
 
     private void Reset()

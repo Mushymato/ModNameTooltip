@@ -4,12 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.5] - 2026-09-11
+
+### Added
+- New hold to show keybind for HUD
+
 ## [1.3.4] - 2026-08-31
 
+### Added
+- Add better crafting compatibility (only for tooltip display)
 
 ### Fixed
 - Trace crafting and cooking recipe assets separately for greater accuracy
-- Add better crafting compatibility (only for tooltip display)
 
 ## [1.3.3] - 2026-08-28
 

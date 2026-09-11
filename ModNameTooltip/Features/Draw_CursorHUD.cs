@@ -330,7 +330,7 @@ public sealed class Draw_CursorHUD(int screenId)
     internal void OnRenderedHud(RenderedHudEventArgs e)
     {
         if (
-            !(ModEntry.config.Enable_HUD && screenId == Context.ScreenId && Game1.currentLocation != null)
+            !(ModEntry.config.Enable_HUD_Display && screenId == Context.ScreenId && Game1.currentLocation != null)
             || hoveredModName == null
             || hoveredName == null
         )
