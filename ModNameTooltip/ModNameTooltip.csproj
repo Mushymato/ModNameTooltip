@@ -19,7 +19,7 @@
     <Description>Shows the mod name of items via tooltip and provide API</Description>
     <UniqueId>mushymato.ModNameTooltip</UniqueId>
     <UpdateKeys>Nexus:50688,GitHub:Mushymato/ModNameTooltip</UpdateKeys>
-    <Version>1.3.5</Version>
+    <Version>1.4.0</Version>
     <BaseManifest>new</BaseManifest>
     <MinimumApiVersion_Behavior>Update</MinimumApiVersion_Behavior>
     <MinimumGameVersion_Behavior>UpdateFull</MinimumGameVersion_Behavior>

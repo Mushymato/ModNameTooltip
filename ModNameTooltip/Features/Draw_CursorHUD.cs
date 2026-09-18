@@ -134,10 +134,6 @@ public sealed class Draw_CursorHUD(int screenId)
         return false;
     }
 
-    private static readonly Func<Tree, string>? lookupAnythingTreeSubjectGetName = AccessTools
-        .DeclaredMethod("Pathoschild.Stardew.LookupAnything.Framework.Lookups.TerrainFeatures.TreeSubject:GetName")
-        ?.CreateDelegate<Func<Tree, string>>();
-
     private static string GetWildTreeName(Tree tree)
     {
         if (
@@ -147,9 +143,9 @@ public sealed class Draw_CursorHUD(int screenId)
         {
             return treeName1;
         }
-        else if (lookupAnythingTreeSubjectGetName?.Invoke(tree) is string treeName2)
+        else if (I18n.GetByKey($"tree.name.{tree.treeType.Value}") is Translation treeName2)
         {
-            return treeName2;
+            return treeName2.ToString();
         }
         return tree.treeType.Value.ToString();
     }
