@@ -121,8 +121,10 @@ public sealed class TraceContext(
                 AssetLoadOperation? loader = loadOperations.MaxBy(p => p.Priority);
                 tracedFrames.Add(
                     new DataTraceFrame(
-                        loader != null ? mod?.Manifest.UniqueID : ModNameInfo.STARDEW_VALLEY,
-                        loader != null ? onBehalfOf : ModNameInfo.STARDEW_VALLEY,
+                        loader?.Mod.Manifest.UniqueID ?? ModNameInfo.STARDEW_VALLEY,
+                        loader?.OnBehalfOf?.Manifest.UniqueID
+                            ?? loader?.Mod.Manifest.UniqueID
+                            ?? ModNameInfo.STARDEW_VALLEY,
                         tracedKeys.ToHashSet()
                     )
                 );
