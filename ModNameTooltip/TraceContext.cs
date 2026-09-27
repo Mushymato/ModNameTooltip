@@ -47,7 +47,7 @@ internal sealed class TraceContext<TValue>(
 
     public bool Active { get; set; } = true;
     internal bool editing = false;
-    private readonly HashSet<string> tracedKeys = [];
+    private HashSet<string>? tracedKeys = null;
 
     internal static Dictionary<Type, Delegate?> idGetters = [];
 
@@ -67,7 +67,7 @@ internal sealed class TraceContext<TValue>(
         if (!Active || editing || !TracedAsset.IsEquivalentTo(assetName) || tracedKeys == null)
             return;
 
-        tracedKeys.Clear();
+        tracedKeys = null;
     }
 
     public void HandleEdit(
@@ -156,10 +156,9 @@ internal sealed class TraceContext<TValue>(
 
     private void CheckAsset(IAssetData asset, ModNameInfo info)
     {
-        if (isList)
-            CheckIdList(asset, info, keyToMod, tracedKeys);
-        else
-            CheckStringDict(asset, info, keyToMod, tracedKeys);
+        tracedKeys = isList
+            ? CheckIdList(asset, info, keyToMod, tracedKeys)
+            : CheckStringDict(asset, info, keyToMod, tracedKeys);
     }
 
     private static HashSet<string> CheckStringDict(
